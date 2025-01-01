@@ -1,14 +1,17 @@
 import { BsGithub } from "react-icons/bs";
 import { PROJECTS } from "../constants";
 import { RiVercelFill } from "react-icons/ri";
-
+import {motion} from "framer-motion"
 const Projects = () => {
   return (
     <div className="border-b border-neutral-800 pb-8">
       <h2 className="my-20 text-center text-4xl">Projects</h2>
       <div className="flex flex-wrap items-center justify-center gap-6">
         {PROJECTS.map((proj, index) => (
-          <div
+          <motion.div
+            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: -100 }}
+            transition={{duration: 1}}
             key={index}
             className="w-full sm:w-[300px] bg-neutral-950 shadow-md shadow-purple-400 rounded-2xl border-4 border-neutral-800 p-4 transition-transform hover:scale-105"
            >
@@ -24,7 +27,7 @@ const Projects = () => {
                  <span key={index} className=" rounded bg-neutral-900 px-2 py-1 text-sm font-medium text-purple-800 ">{tech} </span>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
